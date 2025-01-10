@@ -84,7 +84,7 @@ class SpreadsheetWriter implements Writer
      *
      * @return void Any returned value is ignored.
      */
-    public function finish()
+    public function finish(): void
     {
         $writer = IOFactory::createWriter($this->spreadsheet, $this->type);
         $writer->save($this->filename);
@@ -95,7 +95,7 @@ class SpreadsheetWriter implements Writer
      *
      * @return void Any returned value is ignored.
      */
-    public function prepare()
+    public function prepare(): void
     {
         $reader = IOFactory::createReader($this->type);
         if ($reader->canRead($this->filename)) {
@@ -119,7 +119,7 @@ class SpreadsheetWriter implements Writer
      *
      * @return void Any returned value is ignored.
      */
-    public function writeItem(array $item)
+    public function writeItem(array $item): void
     {
         $count = count($item);
 
@@ -127,7 +127,7 @@ class SpreadsheetWriter implements Writer
             $headers = array_keys($item);
 
             for ($i = 0; $i < $count; $i++) {
-                $this->spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($i + 1, $this->row, $headers[$i]);
+                $this->spreadsheet->getActiveSheet()->setCellValue([$i + 1, $this->row], $headers[$i]); // fixed removal of `setCellValueByColumnAndRow`
             }
             $this->row++;
         }
@@ -135,7 +135,7 @@ class SpreadsheetWriter implements Writer
         $values = array_values($item);
 
         for ($i = 0; $i < $count; $i++) {
-            $this->spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($i + 1, $this->row, $values[$i]);
+            $this->spreadsheet->getActiveSheet()->setCellValue([$i + 1, $this->row], $values[$i]); // fixed removal of `setCellValueByColumnAndRow`
         }
 
         $this->row++;

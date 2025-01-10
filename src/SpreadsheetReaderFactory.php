@@ -33,21 +33,15 @@ use Port\Reader\ReaderFactory;
  */
 class SpreadsheetReaderFactory implements ReaderFactory
 {
-    /**
-     * @var int
-     */
-    protected $activeSheet;
+    protected ?int $activeSheet;
 
-    /**
-     * @var int
-     */
-    protected $headerRowNumber;
+    protected ?int $headerRowNumber;
 
     /**
      * @param int $headerRowNumber
      * @param int $activeSheet
      */
-    public function __construct($headerRowNumber = null, $activeSheet = null)
+    public function __construct(?int $headerRowNumber = null, ?int $activeSheet = null)
     {
         $this->headerRowNumber = $headerRowNumber;
         $this->activeSheet     = $activeSheet;
@@ -58,7 +52,7 @@ class SpreadsheetReaderFactory implements ReaderFactory
      *
      * @return SpreadsheetReader
      */
-    public function getReader(\SplFileObject $file)
+    public function getReader(\SplFileObject $file): SpreadsheetReader
     {
         return new SpreadsheetReader($file, $this->headerRowNumber, $this->activeSheet);
     }
