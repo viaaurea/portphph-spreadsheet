@@ -5,7 +5,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/portphp/spreadsheet/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/portphp/spreadsheet/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/portphp/spreadsheet/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/portphp/spreadsheet/?branch=master)
 
-[PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet) reader and writer 
+[PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet) reader and writer
 for [Port](https://github.com/portphp).
 
 ## Installation
@@ -14,7 +14,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this package:
 
 ```bash
-$ composer require portphp/spreadsheet
+$ composer require viaaurea/portphp-spreadsheet
 ```
 
 This command requires you to have Composer installed globally, as explained

@@ -1,5 +1,5 @@
 {
-    "name": "portphp/spreadsheet",
+    "name": "viaaurea/portphp-spreadsheet",
     "description": "PhpSpreadsheet reader and writer for Port",
     "license": "MIT",
     "homepage": "https://github.com/portphp",
@@ -27,6 +27,9 @@
         "portphp/portphp": "^1.9",
         "phpoffice/phpspreadsheet": "^3"
     },
+    "replace": {
+        "portphp/spreadsheet": "1.9.*"
+    },
     "autoload": {
         "psr-4": {
             "Port\\Spreadsheet\\": "src/"
@@ -43,7 +46,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-trunk": "1.0.x-dev"
         }
     }
 }
